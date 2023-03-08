@@ -61,10 +61,12 @@ const getWebData = async (url, selector) => {
     const rows = Array.from(document.querySelectorAll(selector));
     const formattedData = rows.map((row) => ({
       title: row.querySelector("a").getAttribute("aria-label"),
+
       price:
         Math.round(
           (convertPrice(row.querySelector(".bp5wbcj").innerText) * 1.05) / 10
         ) * 10,
+
       imgSrc: row.querySelector("img").getAttribute("src"),
     }));
 
