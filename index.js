@@ -59,15 +59,15 @@ const getWebData = async (url, selector) => {
     };
 
     const rows = Array.from(document.querySelectorAll(selector));
-    const formattedData = rows.map((row) => ({
-      title: row.querySelector("a").getAttribute("aria-label"),
-
+    const formattedData = rows.map((row, index) => ({
+      titel: row.querySelector("a").getAttribute("aria-label"),
       price:
         Math.round(
           (convertPrice(row.querySelector(".bp5wbcj").innerText) * 1.05) / 10
         ) * 10,
-
       imgSrc: row.querySelector("img").getAttribute("src"),
+      category: document.querySelector(".hx450ow").innerText,
+      id: index,
     }));
 
     return formattedData;
@@ -78,11 +78,11 @@ const getWebData = async (url, selector) => {
 };
 
 const main = async () => {
-  const gpuData = await getWebData(gpuUrl, inetSelector);
-  gpuFacts.push(gpuData);
+  // const gpuData = await getWebData(gpuUrl, inetSelector);
+  // gpuFacts.push(gpuData);
 
-  const cpuData = await getWebData(cpuUrl, inetSelector);
-  cpuFacts.push(cpuData);
+  // const cpuData = await getWebData(cpuUrl, inetSelector);
+  // cpuFacts.push(cpuData);
 
   const chassiData = await getWebData(chassiUrl, inetSelector);
   chassiFacts.push(chassiData);
@@ -90,31 +90,31 @@ const main = async () => {
   const motherboardData = await getWebData(motherboardUrl, inetSelector);
   motherboardFacts.push(motherboardData);
 
-  const ssdData = await getWebData(ssdUrl, inetSelector);
-  ssdFacts.push(ssdData);
+  // const ssdData = await getWebData(ssdUrl, inetSelector);
+  // ssdFacts.push(ssdData);
 
-  const coolerData = await getWebData(coolerUrl, inetSelector);
-  coolerFacts.push(coolerData);
+  // const coolerData = await getWebData(coolerUrl, inetSelector);
+  // coolerFacts.push(coolerData);
 
-  const ramData = await getWebData(ramUrl, inetSelector);
-  ramFacts.push(ramData);
+  // const ramData = await getWebData(ramUrl, inetSelector);
+  // ramFacts.push(ramData);
 
-  const netaggregateData = await getWebData(netaggregateUrl, inetSelector);
-  netaggregateFacts.push(netaggregateData);
+  // const netaggregateData = await getWebData(netaggregateUrl, inetSelector);
+  // netaggregateFacts.push(netaggregateData);
 
-  const hddData = await getWebData(hddUrl, inetSelector);
-  hddFacts.push(hddData);
+  // const hddData = await getWebData(hddUrl, inetSelector);
+  // hddFacts.push(hddData);
 
   computerFacts.push(
-    ...gpuFacts,
-    ...cpuFacts,
+    // ...gpuFacts
+    // ...cpuFacts
     ...chassiFacts,
-    ...netaggregateFacts,
-    ...coolerFacts,
-    ...ssdFacts,
-    ...ramFacts,
-    ...motherboardFacts,
-    ...hddFacts
+    ...motherboardFacts
+    // ...netaggregateFacts
+    // ...coolerFacts,
+    // ...ssdFacts,
+    // ...ramFacts,
+    // ...hddFacts
   );
 
   // fs.writeFile("data.json", JSON.stringify(computerFacts), (err) => {
