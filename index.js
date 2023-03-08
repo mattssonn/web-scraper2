@@ -3,6 +3,7 @@ const PORT = 8000;
 const express = require("express");
 const cors = require("cors");
 const app = express();
+const fs = require("fs");
 
 const dotenv = require("dotenv");
 
@@ -110,6 +111,11 @@ const main = async () => {
     ...motherboardFacts,
     ...hddFacts
   );
+
+  // fs.writeFile("data.json", JSON.stringify(computerFacts), (err) => {
+  //   if (err) throw err;
+  //   console.log("success");
+  // });
 };
 
 main();

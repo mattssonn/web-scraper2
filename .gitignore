@@ -1,2 +1,6 @@
 .env
 node_modules
+
+convertJson.js 
+data.json 
+csvData.csv
