@@ -59,7 +59,7 @@ const getWebData = async (url, selector) => {
     };
 
     const rows = Array.from(document.querySelectorAll(selector));
-    const formattedData = rows.map((row, index) => ({
+    const formattedData = rows.map((row) => ({
       titel: row.querySelector("a").getAttribute("aria-label"),
       price:
         Math.round(
@@ -67,7 +67,6 @@ const getWebData = async (url, selector) => {
         ) * 10,
       imgSrc: row.querySelector("img").getAttribute("src"),
       category: document.querySelector(".hx450ow").innerText,
-      id: index,
     }));
 
     return formattedData;
@@ -127,20 +126,4 @@ main();
 
 app.get("/", (req, res) => {
   res.send(computerFacts);
-});
-
-app.get("/gpu", (req, res) => {
-  res.send(gpuFacts);
-});
-
-app.get("/cpu", (req, res) => {
-  res.send(cpuFacts);
-});
-
-app.get("/chassi", (req, res) => {
-  res.send(chassiFacts);
-});
-
-app.get("/motherboards", (req, res) => {
-  res.send(motherboardFacts);
 });
