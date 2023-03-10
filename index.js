@@ -60,13 +60,13 @@ const getWebData = async (url, selector) => {
 
     const rows = Array.from(document.querySelectorAll(selector));
     const formattedData = rows.map((row) => ({
-      titel: row.querySelector("a").getAttribute("aria-label"),
-      price:
+      namn: row.querySelector("a").getAttribute("aria-label"),
+      pris:
         Math.round(
           (convertPrice(row.querySelector(".bp5wbcj").innerText) * 1.05) / 10
         ) * 10,
-      imgSrc: row.querySelector("img").getAttribute("src"),
-      category: document.querySelector(".hx450ow").innerText,
+      bilder: row.querySelector("img").getAttribute("src"),
+      kategorier: document.querySelector(".hx450ow").innerText,
     }));
 
     return formattedData;
@@ -115,6 +115,11 @@ const main = async () => {
     // ...ramFacts,
     // ...hddFacts
   );
+
+  computerFacts.flat().forEach((item, index = 1000) => {
+    let id = index + 1;
+    item.artikelnummer = id;
+  });
 
   // fs.writeFile("data.json", JSON.stringify(computerFacts), (err) => {
   //   if (err) throw err;
