@@ -92,11 +92,11 @@ const getWebData = async (url, selector) => {
 };
 
 const main = async () => {
-  // const gpuData = await getWebData(gpuUrl, inetSelector);
-  // gpuFacts.push(gpuData);
+  const gpuData = await getWebData(gpuUrl, inetSelector);
+  gpuFacts.push(gpuData);
 
-  // const cpuData = await getWebData(cpuUrl, inetSelector);
-  // cpuFacts.push(cpuData);
+  const cpuData = await getWebData(cpuUrl, inetSelector);
+  cpuFacts.push(cpuData);
 
   const chassiData = await getWebData(chassiUrl, inetSelector);
   chassiFacts.push(chassiData);
@@ -104,31 +104,31 @@ const main = async () => {
   const motherboardData = await getWebData(motherboardUrl, inetSelector);
   motherboardFacts.push(motherboardData);
 
-  // const ssdData = await getWebData(ssdUrl, inetSelector);
-  // ssdFacts.push(ssdData);
+  const ssdData = await getWebData(ssdUrl, inetSelector);
+  ssdFacts.push(ssdData);
 
-  // const coolerData = await getWebData(coolerUrl, inetSelector);
-  // coolerFacts.push(coolerData);
+  const coolerData = await getWebData(coolerUrl, inetSelector);
+  coolerFacts.push(coolerData);
 
-  // const ramData = await getWebData(ramUrl, inetSelector);
-  // ramFacts.push(ramData);
+  const ramData = await getWebData(ramUrl, inetSelector);
+  ramFacts.push(ramData);
 
-  // const netaggregateData = await getWebData(netaggregateUrl, inetSelector);
-  // netaggregateFacts.push(netaggregateData);
+  const netaggregateData = await getWebData(netaggregateUrl, inetSelector);
+  netaggregateFacts.push(netaggregateData);
 
-  // const hddData = await getWebData(hddUrl, inetSelector);
-  // hddFacts.push(hddData);
+  const hddData = await getWebData(hddUrl, inetSelector);
+  hddFacts.push(hddData);
 
   computerFacts.push(
-    // ...gpuFacts
-    // ...cpuFacts
+    ...gpuFacts,
+    ...cpuFacts,
     ...chassiFacts,
-    ...motherboardFacts
-    // ...netaggregateFacts
-    // ...coolerFacts,
-    // ...ssdFacts,
-    // ...ramFacts,
-    // ...hddFacts
+    ...motherboardFacts,
+    ...netaggregateFacts,
+    ...coolerFacts,
+    ...ssdFacts,
+    ...ramFacts,
+    ...hddFacts
   );
 
   // Loop through all the facts in computerFacts, and set a unique artikelnummer for each item
